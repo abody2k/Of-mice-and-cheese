@@ -15,7 +15,7 @@ var rain_multiplier = 1.0
 
 
 
-var STUFF = {
+const STUFF = {
 "SEEDS":0.5,
 "FLOUR": 10,
  "ELECTRICITY":100,
@@ -55,7 +55,9 @@ func increase_water(new_water):
 
 
 
-func buy_something(price):
+func buy_something(item):
+	var price = STUFF[item]
+	
 	if gold < price:
 		return -1
 	else:
