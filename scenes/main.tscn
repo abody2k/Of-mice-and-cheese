@@ -9,4 +9,9 @@ script = ExtResource("1_o5qli")
 one_shot = true
 autostart = true
 
+[node name="raining" type="Timer" parent="." unique_id=838724048]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="rain" to="." method="_on_rain_timeout"]
+[connection signal="timeout" from="raining" to="." method="_on_raining_timeout"]
