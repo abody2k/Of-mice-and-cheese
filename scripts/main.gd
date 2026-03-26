@@ -62,6 +62,15 @@ func buy_something(item):
 		return -1
 	else:
 		gold -= price
+		match item:
+			"SEEDS":
+				seeds+=1
+			"ELECTRICITY":
+				electricity_capacity+=1
+			"WATER":
+				water_capacity+=1
+			"FLOUR":
+				flour+=1
 		return 0
 		
 func sell_something(something):
