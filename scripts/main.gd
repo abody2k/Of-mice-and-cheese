@@ -62,3 +62,8 @@ func buy_something(price):
 		
 func sell_something(something):
 	pass
+
+
+func _on_rain_timeout():
+	$rain.wait_time = randf_range(2,30)
+	$rain.start()
