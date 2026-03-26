@@ -13,7 +13,7 @@ var open_water_gate = false
 var raining = false
 var rain_multiplier = 1.0
 
-var cloudy= false
+var cloudy= true
 
 
 const STUFF = {
@@ -28,6 +28,7 @@ const STUFF = {
 func clouds_going_away():
 	get_tree().call_group("plants","grow_normally")
 	cloudy = false
+	raining = false
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -41,7 +42,7 @@ func _process(delta):
 	if open_water_gate:
 		decrease_water(delta)
 		
-	if raining and not cloudy:
+	if raining and cloudy:
 		increase_water(delta)
 	
 	
@@ -84,4 +85,12 @@ func sell_something(something):
 
 func _on_rain_timeout():
 	$rain.wait_time = randf_range(2,30)
+	raining = true
+	$raining.start()
+	
+	
+
+
+func _on_raining_timeout():
+	raining = false
 	$rain.start()
