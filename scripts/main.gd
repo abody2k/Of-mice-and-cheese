@@ -1,6 +1,6 @@
 extends Node3D
 
-var gold = 0
+var gold = 0.0
 var water = 0.0
 var flour = 0
 var seeds = 0
@@ -15,9 +15,11 @@ var rain_multiplier = 1.0
 
 
 
-enum STUFF{
-	
-	SEEDS=10,FLOUR= 20, ELECTRICITY=100,WATER=100
+var STUFF = {
+"SEEDS":0.5,
+"FLOUR": 10,
+ "ELECTRICITY":100,
+"WATER":100
 }
 
 
