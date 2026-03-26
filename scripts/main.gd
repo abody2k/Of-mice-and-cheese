@@ -13,6 +13,7 @@ var open_water_gate = false
 var raining = false
 var rain_multiplier = 1.0
 
+var cloudy= false
 
 
 const STUFF = {
@@ -24,6 +25,10 @@ const STUFF = {
 
 
 
+func clouds_going_away():
+	get_tree().call_group("plants","grow_normally")
+	cloudy = false
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,7 +41,7 @@ func _process(delta):
 	if open_water_gate:
 		decrease_water(delta)
 		
-	if raining:
+	if raining and not cloudy:
 		increase_water(delta)
 	
 	
