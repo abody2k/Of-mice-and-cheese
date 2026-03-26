@@ -1,6 +1,6 @@
 extends Node3D
 
-var gold = 0
+var gold = 0.0
 var water = 0.0
 var flour = 0
 var seeds = 0
@@ -12,6 +12,15 @@ var open_water_gate = false
 
 var raining = false
 var rain_multiplier = 1.0
+
+
+
+const STUFF = {
+"SEEDS":0.5,
+"FLOUR": 10,
+ "ELECTRICITY":100,
+"WATER":100
+}
 
 
 
@@ -43,3 +52,31 @@ func decrease_water(by_how_much):
 func increase_water(new_water):
 	water+= rain_multiplier * new_water
 	water = clampf(water,0,water_capacity)
+
+
+
+func buy_something(item):
+	var price = STUFF[item]
+	
+	if gold < price:
+		return -1
+	else:
+		gold -= price
+		match item:
+			"SEEDS":
+				seeds+=1
+			"ELECTRICITY":
+				electricity_capacity+=1
+			"WATER":
+				water_capacity+=1
+			"FLOUR":
+				flour+=1
+		return 0
+		
+func sell_something(something):
+	pass
+
+
+func _on_rain_timeout():
+	$rain.wait_time = randf_range(2,30)
+	$rain.start()

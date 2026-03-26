@@ -4,3 +4,9 @@
 
 [node name="main" type="Node3D" unique_id=1107379641]
 script = ExtResource("1_o5qli")
+
+[node name="rain" type="Timer" parent="." unique_id=318510260]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="rain" to="." method="_on_rain_timeout"]
