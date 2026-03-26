@@ -10,6 +10,8 @@ var electricity_capacity = 0
 
 var open_water_gate = false
 
+var raining = false
+var rain_multiplier = 1.0
 
 
 
@@ -24,6 +26,9 @@ func _process(delta):
 	
 	if open_water_gate:
 		decrease_water(delta)
+		
+	if raining:
+		increase_water(delta)
 	
 	
 	
@@ -32,4 +37,9 @@ func decrease_water(by_how_much):
 		return -1
 	else:
 		water -= by_how_much
+		water = clampf(water,0,water_capacity)
 		return 0
+		
+func increase_water(new_water):
+	water+= rain_multiplier * new_water
+	water = clampf(water,0,water_capacity)
