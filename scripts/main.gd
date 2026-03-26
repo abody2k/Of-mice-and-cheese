@@ -15,6 +15,13 @@ var rain_multiplier = 1.0
 
 
 
+enum STUFF{
+	
+	SEEDS=10,FLOUR= 20, ELECTRICITY=100,WATER=100
+}
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,3 +50,15 @@ func decrease_water(by_how_much):
 func increase_water(new_water):
 	water+= rain_multiplier * new_water
 	water = clampf(water,0,water_capacity)
+
+
+
+func buy_something(price):
+	if gold < price:
+		return -1
+	else:
+		gold -= price
+		return 0
+		
+func sell_something(something):
+	pass
