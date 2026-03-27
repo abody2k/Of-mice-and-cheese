@@ -117,3 +117,14 @@ func spend_rank(special_power):
 	else:
 		return 1
 	
+
+func use_electricity(required_capacity):
+	if electricity + required_capacity > electricity_capacity:
+		return 1
+	else:
+		electricity+= required_capacity
+		return 0
+		
+func electricity_release(released_energy):
+	electricity-=released_energy
+		
