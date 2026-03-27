@@ -24,6 +24,13 @@ const STUFF = {
 }
 
 
+const SPECIAL_POWERS = {
+	
+	"AIR_STRIKES": 10.0,
+	"MONEY_DROP": 20.0,
+}
+
+
 
 func clouds_going_away():
 	get_tree().call_group("plants","grow_normally")
