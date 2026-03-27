@@ -24,6 +24,13 @@ const STUFF = {
 }
 
 
+const SPECIAL_POWERS = {
+	
+	"AIR_STRIKES": 10.0,
+	"MONEY_DROP": 20.0,
+}
+
+
 
 func clouds_going_away():
 	get_tree().call_group("plants","grow_normally")
@@ -100,4 +107,13 @@ func _on_raining_timeout():
 func increase_rank(rank_increase):
 	special_rank+=rank_increase
 	
+	
+
+
+func spend_rank(special_power):
+	if special_rank >= SPECIAL_POWERS[special_power]:
+		special_rank -= SPECIAL_POWERS[special_power]
+		return 0
+	else:
+		return 1
 	
