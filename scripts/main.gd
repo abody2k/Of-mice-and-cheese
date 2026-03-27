@@ -88,7 +88,8 @@ func _on_rain_timeout():
 	raining = true
 	$raining.start()
 	
-	
+func increase_flour():
+	flour+=1	
 
 
 func _on_raining_timeout():
