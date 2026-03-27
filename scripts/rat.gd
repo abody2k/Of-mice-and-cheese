@@ -4,7 +4,8 @@ extends CharacterBody3D
 @export var speed = 5.0
 @export var hp = 100.0
 @export var attack_power = 10
-
+#a rank that is given to the player once this rat dies
+@export var on_death_rank = 1.0
 var frozen = false
 
 
