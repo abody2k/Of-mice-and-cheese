@@ -95,3 +95,9 @@ func increase_flour():
 func _on_raining_timeout():
 	raining = false
 	$rain.start()
+	
+	
+func increase_rank(rank_increase):
+	special_rank+=rank_increase
+	
+	
