@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bpmf5g0k638cb" path="res://scripts/main.gd" id="1_o5qli"]
 
-[node name="main" type="Node3D" unique_id=1107379641]
+[node name="main" type="Node3D" unique_id=1107379641 groups=["main"]]
 script = ExtResource("1_o5qli")
 
 [node name="rain" type="Timer" parent="." unique_id=318510260]

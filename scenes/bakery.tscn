@@ -8,3 +8,5 @@ script = ExtResource("1_7c2hd")
 [node name="queue" type="Timer" parent="." unique_id=1751973752]
 wait_time = 5.0
 one_shot = true
+
+[connection signal="timeout" from="queue" to="." method="_on_queue_timeout"]
