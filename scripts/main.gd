@@ -125,3 +125,6 @@ func use_electricity(required_capacity):
 		electricity+= required_capacity
 		return 0
 		
+func electricity_release(released_energy):
+	electricity-=released_energy
+		
