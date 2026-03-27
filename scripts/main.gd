@@ -108,3 +108,12 @@ func increase_rank(rank_increase):
 	special_rank+=rank_increase
 	
 	
+
+
+func spend_rank(special_power):
+	if special_rank >= SPECIAL_POWERS[special_power]:
+		special_rank -= SPECIAL_POWERS[special_power]
+		return 0
+	else:
+		return 1
+	
