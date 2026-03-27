@@ -15,7 +15,9 @@ func take_damage(damage):
 		#rat is dead and should play death animation
 		return 1
 	else:
+		get_tree().call_group("main","increase_rank",on_death_rank)
 		return 0
+	
 		
 
 func _physics_process(delta):
