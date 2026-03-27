@@ -4,3 +4,7 @@
 
 [node name="bakery" type="StaticBody3D" unique_id=172261363]
 script = ExtResource("1_7c2hd")
+
+[node name="queue" type="Timer" parent="." unique_id=1751973752]
+wait_time = 5.0
+one_shot = true
