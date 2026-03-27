@@ -7,7 +7,7 @@ var seeds = 0
 var electricity = 0
 var water_capacity = 0.0
 var electricity_capacity = 0
-
+var special_rank = 0.0
 var open_water_gate = false
 
 var raining = false
