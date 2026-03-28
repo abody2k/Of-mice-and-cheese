@@ -18,12 +18,17 @@ shape = SubResource("CapsuleShape3D_g2els")
 mesh = SubResource("CapsuleMesh_qhqgy")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=220529248]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 3.437012, 0)
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 6.437, 0)
 shape = SubResource("SphereShape3D_3vyb7")
 spring_length = 5.0
 
 [node name="top" type="Camera3D" parent="SpringArm3D" unique_id=1509131553]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 
-[node name="fps" type="Camera3D" parent="SpringArm3D" unique_id=233448768]
+[node name="FPS" type="SpringArm3D" parent="." unique_id=1134058956]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.7338116, 0)
+shape = SubResource("SphereShape3D_3vyb7")
+spring_length = 5.0
+
+[node name="fps" type="Camera3D" parent="FPS" unique_id=1122877707]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)

@@ -2,6 +2,19 @@
 
 [ext_resource type="Script" uid="uid://bpmf5g0k638cb" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dg84uy4wmu6x2" path="res://scenes/pressure_point.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://b47hkftkufyky" path="res://scenes/player.tscn" id="3_sugp2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_sugp2"]
+sky_material = SubResource("ProceduralSkyMaterial_0wfyh")
+
+[sub_resource type="Environment" id="Environment_jyhfs"]
+background_mode = 2
+sky = SubResource("Sky_sugp2")
+tonemap_mode = 2
 
 [sub_resource type="Curve3D" id="Curve3D_o5qli"]
 _data = {
@@ -33,6 +46,13 @@ point_count = 9
 
 [node name="main" type="Node3D" unique_id=1107379641 groups=["main"]]
 script = ExtResource("1_o5qli")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=807428887]
+environment = SubResource("Environment_jyhfs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1280152593]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="rain" type="Timer" parent="." unique_id=318510260]
 one_shot = true
@@ -66,13 +86,16 @@ transform = Transform3D(-0.020403681, 0, 0.9997918, 0, 1, 0, -0.9997918, 0, -0.0
 curve = SubResource("Curve3D_jyhfs")
 
 [node name="follow" type="PathFollow3D" parent="paths/3" unique_id=1861191831]
-transform = Transform3D(-0.2228246, 0, 0.97485846, 0, 1, 0, -0.97485846, 0, -0.2228246, 6.76529, 0, 1.2182707)
+transform = Transform3D(-0.22282454, 0, 0.97485816, 0, 1, 0, -0.97485816, 0, -0.22282454, 6.76529, 0, 1.2182707)
 
 [node name="pressure_point" parent="paths/3" unique_id=245685369 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
 [node name="pressure_point2" parent="paths/3" unique_id=861776379 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1407666, 0, 0)
+
+[node name="player" parent="paths/3" unique_id=1429728027 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.092672, 2.3841858e-07, 0.06392717)
 
 [connection signal="timeout" from="rain" to="." method="_on_rain_timeout"]
 [connection signal="timeout" from="raining" to="." method="_on_raining_timeout"]
