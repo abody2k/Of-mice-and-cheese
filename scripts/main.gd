@@ -9,7 +9,7 @@ var water_capacity = 0.0
 var electricity_capacity = 0
 var special_rank = 0.0
 var open_water_gate = false
-
+var defenses_on = false
 var raining = false
 var rain_multiplier = 1.0
 
