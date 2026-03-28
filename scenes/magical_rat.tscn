@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cjoqjte5lxfj5"]
+
+[ext_resource type="Script" uid="uid://gh2om1xr277p" path="res://scenes/magical_rat.gd" id="1_jhkp8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8jjk5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_jhkp8"]
+
+[node name="magical_rat" type="CharacterBody3D" unique_id=387671738]
+script = ExtResource("1_jhkp8")
+speed = 1.0
+hp = 50.0
+attack_power = 0
+on_death_rank = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=932516922]
+shape = SubResource("SphereShape3D_8jjk5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=536399759]
+mesh = SubResource("SphereMesh_jhkp8")

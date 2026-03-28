@@ -17,6 +17,8 @@ var cloudy= true
 
 @export var waves_left = 10
 
+const RAT = preload("res://scenes/rat.tscn")
+
 
 const STUFF = {
 "SEEDS":0.5,
@@ -158,12 +160,17 @@ func _on_spawning_timeout():
 	waves_left -=1
 	#spawn a new rat
 	
-	if randi_range(0,1) == 0:
-		pass
-	else:
-		pass
+	match  randi_range(0,2):
+		0:
+			var rat = RAT.instantiate()
+			get_node(str(randi_range(0,3))+"/follow").add_child(rat)
+			
+		1:
+			pass
+		2:
+			pass
 	if waves_left ==0:
-		waves_left = 10
+		waves_left = randi_range(10,30)
 		$waves/spawning.stop()
 		$waves.start()
 	
