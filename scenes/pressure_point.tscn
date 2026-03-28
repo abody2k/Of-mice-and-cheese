@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://dg84uy4wmu6x2"]
 
+[ext_resource type="Script" uid="uid://u1baxtmhy2yo" path="res://scripts/pressure_point.gd" id="1_ca3j5"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_aitfe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ca3j5"]
 
 [node name="pressure_point" type="Area3D" unique_id=245685369]
+script = ExtResource("1_ca3j5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=540697287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.30449462, 0)
@@ -13,3 +16,6 @@ shape = SubResource("BoxShape3D_aitfe")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=981948159]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.30449462, 0)
 mesh = SubResource("BoxMesh_ca3j5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
