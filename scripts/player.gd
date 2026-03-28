@@ -16,6 +16,12 @@ func _physics_process(delta):
 	else:
 		pass
 		
+	if Input.is_action_just_pressed("switch_views"):
+		if mode == MODES.TOP:
+			mode = MODES.FPS
+		else:
+			mode = MODES.TOP
+		
 	return
 		
 	# Add the gravity.
