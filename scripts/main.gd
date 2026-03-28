@@ -113,6 +113,8 @@ func increase_rank(rank_increase):
 func spend_rank(special_power):
 	if special_rank >= SPECIAL_POWERS[special_power]:
 		special_rank -= SPECIAL_POWERS[special_power]
+		if special_power == "MONEY_DROP":
+			gold += randi_range(100,200)
 		return 0
 	else:
 		return 1
