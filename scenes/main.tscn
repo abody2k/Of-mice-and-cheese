@@ -2,6 +2,34 @@
 
 [ext_resource type="Script" uid="uid://bpmf5g0k638cb" path="res://scripts/main.gd" id="1_o5qli"]
 
+[sub_resource type="Curve3D" id="Curve3D_o5qli"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.5449643, 0, -0.3369684, 0, 0, 0, 0, 0, 0, 5.8062253, 0, -0.6091353, 0, 0, 0, 0, 0, 0, 5.469257, 0, -0.2721667, 0, 0, 0, 0, 0, 0, 4.7694, 0, -0.1166428, 0, 0, 0, 0, 0, 0, 4.238026, 0, -0.46657172, 0, 0, 0, 0, 0, 0, 3.6029706, 0, -0.62209564, 0, 0, 0, 0, 0, 0, 3.0975175, 0, -0.6998576, 0, 0, 0, 0, 0, 0, 2.462462, 0, -0.8035401, 0, 0, 0, 0, 0, 0, 1.4774766, 0, -0.8294609, 0, 0, 0, 0, 0, 0, 0.5832143, 0, -0.81650037),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
+
+[sub_resource type="Curve3D" id="Curve3D_0wfyh"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.713448, 0, 0.5054528, 0, 0, 0, 0, 0, 0, 5.8969483, 0, 0.3888095, 0, 0, 0, 0, 0, 0, 5.534059, 0, 0.55729395, 0, 0, 0, 0, 0, 0, 4.937884, 0, 0.3888095, 0, 0, 0, 0, 0, 0, 4.497233, 0, 0.29808727, 0, 0, 0, 0, 0, 0, 3.3696847, 0, 0.29808727, 0, 0, 0, 0, 0, 0, 2.345819, 0, 0.32400838, 0, 0, 0, 0, 0, 0, 1.3867545, 0, 0.3758495, 0, 0, 0, 0, 0, 0, 0.60913515, 0, 0.2721667),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
+
+[sub_resource type="Curve3D" id="Curve3D_sugp2"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.532004, 0, -1.5422788, 0, 0, 0, 0, 0, 0, 5.8969483, 0, -1.5293186, 0, 0, 0, 0, 0, 0, 4.8082805, 0, -1.5681994, 0, 0, 0, 0, 0, 0, 3.6936927, 0, -1.5811596, 0, 0, 0, 0, 0, 0, 2.5402236, 0, -1.6718819, 0, 0, 0, 0, 0, 0, 1.3867545, 0, -1.6589216, 0, 0, 0, 0, 0, 0, 0.31104755, 0, -1.6200408),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_jyhfs"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.76529, 0, 1.2182707, 0, 0, 0, 0, 0, 0, 5.858067, 0, 1.4256357, 0, 0, 0, 0, 0, 0, 4.963804, 0, 1.308993, 0, 0, 0, 0, 0, 0, 4.497233, 0, 0.7905801, 0, 0, 0, 0, 0, 0, 3.9917798, 0, 1.2441913, 0, 0, 0, 0, 0, 0, 3.2530417, 0, 0.9201829, 0, 0, 0, 0, 0, 0, 2.3587785, 0, 0.959064, 0, 0, 0, 0, 0, 0, 1.0497866, 0, 0.959064, 0, 0, 0, 0, 0, 0, 0.648016, 0, 0.959064),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
+
 [node name="main" type="Node3D" unique_id=1107379641 groups=["main"]]
 script = ExtResource("1_o5qli")
 
@@ -12,6 +40,32 @@ autostart = true
 [node name="raining" type="Timer" parent="." unique_id=838724048]
 wait_time = 5.0
 one_shot = true
+
+[node name="paths" type="Node3D" parent="." unique_id=1201243032]
+
+[node name="0" type="Path3D" parent="paths" unique_id=1552208539]
+curve = SubResource("Curve3D_o5qli")
+
+[node name="follow" type="PathFollow3D" parent="paths/0" unique_id=449822368]
+transform = Transform3D(0.3457037, 0, 0.9383387, 0, 1, 0, -0.9383387, 0, 0.3457037, 6.5449643, 0, -0.3369684)
+
+[node name="1" type="Path3D" parent="paths" unique_id=2007321777]
+curve = SubResource("Curve3D_0wfyh")
+
+[node name="follow" type="PathFollow3D" parent="paths/1" unique_id=724527209]
+transform = Transform3D(0.14142193, 0, 0.9899494, 0, 1, 0, -0.9899494, 0, 0.14142193, 6.713448, 0, 0.5054528)
+
+[node name="2" type="Path3D" parent="paths" unique_id=898314814]
+curve = SubResource("Curve3D_sugp2")
+
+[node name="follow" type="PathFollow3D" parent="paths/2" unique_id=435971845]
+transform = Transform3D(-0.020403681, 0, 0.9997918, 0, 1, 0, -0.9997918, 0, -0.020403681, 6.532004, 0, -1.5422788)
+
+[node name="3" type="Path3D" parent="paths" unique_id=293742382]
+curve = SubResource("Curve3D_jyhfs")
+
+[node name="follow" type="PathFollow3D" parent="paths/3" unique_id=1861191831]
+transform = Transform3D(-0.22282462, 0, 0.9748585, 0, 1, 0, -0.9748585, 0, -0.22282462, 6.76529, 0, 1.2182707)
 
 [connection signal="timeout" from="rain" to="." method="_on_rain_timeout"]
 [connection signal="timeout" from="raining" to="." method="_on_raining_timeout"]
