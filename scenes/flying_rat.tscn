@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://clj34e3j6tnlo"]
+
+[ext_resource type="Script" uid="uid://tsmaxwwecpuo" path="res://flying_rat.gd" id="1_5bwme"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8jjk5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_jhkp8"]
+
+[node name="flying_rat" type="CharacterBody3D" unique_id=1956684343]
+script = ExtResource("1_5bwme")
+speed = 20.0
+hp = 200.0
+attack_power = 30
+on_death_rank = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1274614391]
+shape = SubResource("SphereShape3D_8jjk5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1089961108]
+mesh = SubResource("SphereMesh_jhkp8")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cjoqjte5lxfj5"]
 
-[ext_resource type="Script" uid="uid://gh2om1xr277p" path="res://scenes/magical_rat.gd" id="1_jhkp8"]
+[ext_resource type="Script" uid="uid://gh2om1xr277p" path="res://scripts/magical_rat.gd" id="1_jhkp8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8jjk5"]
 
