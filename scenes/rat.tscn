@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dpxxor3vywgq6"]
+
+[ext_resource type="Script" uid="uid://cs7vyubide7ey" path="res://scripts/rat.gd" id="1_1l88y"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gahpx"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_77a1s"]
+
+[node name="rat" type="CharacterBody3D" unique_id=2088614294]
+script = ExtResource("1_1l88y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1185605478]
+shape = SubResource("SphereShape3D_gahpx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=3140963]
+mesh = SubResource("SphereMesh_77a1s")

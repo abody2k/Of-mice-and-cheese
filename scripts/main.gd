@@ -9,11 +9,15 @@ var water_capacity = 0.0
 var electricity_capacity = 0
 var special_rank = 0.0
 var open_water_gate = false
-
+var defenses_on = false
 var raining = false
 var rain_multiplier = 1.0
 
 var cloudy= true
+
+@export var waves_left = 10
+
+const RAT = preload("res://scenes/rat.tscn")
 
 
 const STUFF = {
@@ -40,7 +44,7 @@ func clouds_going_away():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$waves.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -113,6 +117,8 @@ func increase_rank(rank_increase):
 func spend_rank(special_power):
 	if special_rank >= SPECIAL_POWERS[special_power]:
 		special_rank -= SPECIAL_POWERS[special_power]
+		if special_power == "MONEY_DROP":
+			gold += randi_range(100,200)
 		return 0
 	else:
 		return 1
@@ -128,3 +134,43 @@ func use_electricity(required_capacity):
 func electricity_release(released_energy):
 	electricity-=released_energy
 		
+
+
+func player_entered(pressure_point_type):
+	
+	if pressure_point_type == 0:
+		defenses_on = true
+		open_water_gate = false
+	else:
+		defenses_on = false
+		open_water_gate = true
+		
+func player_left(pressure_point_type):
+	if pressure_point_type == 0:
+		defenses_on = false
+	else:
+		open_water_gate = false	
+
+
+func _on_waves_timeout():
+	$waves/spawning.start()
+
+
+func _on_spawning_timeout():
+	waves_left -=1
+	#spawn a new rat
+	
+	match  randi_range(0,2):
+		0:
+			var rat = RAT.instantiate()
+			get_node(str(randi_range(0,3))+"/follow").add_child(rat)
+			
+		1:
+			pass
+		2:
+			pass
+	if waves_left ==0:
+		waves_left = randi_range(10,30)
+		$waves/spawning.stop()
+		$waves.start()
+	
