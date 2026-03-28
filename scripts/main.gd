@@ -128,3 +128,13 @@ func use_electricity(required_capacity):
 func electricity_release(released_energy):
 	electricity-=released_energy
 		
+
+
+func player_entered(pressure_point_type):
+	
+	if pressure_point_type == 0:
+		defenses_on = true
+		open_water_gate = false
+	else:
+		defenses_on = false
+		open_water_gate = true
