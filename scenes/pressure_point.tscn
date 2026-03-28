@@ -21,6 +21,21 @@ tracks/0/keys = {
 "values": [Vector3(0, -0.028269768, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_qmj2d"]
+resource_name = "depress"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.46562582, 0), Vector3(0, 0.2, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_857gi"]
 resource_name = "press"
 tracks/0/type = "value"
@@ -39,6 +54,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qmj2d"]
 _data = {
 &"RESET": SubResource("Animation_ca3j5"),
+&"depress": SubResource("Animation_qmj2d"),
 &"press": SubResource("Animation_857gi")
 }
 
