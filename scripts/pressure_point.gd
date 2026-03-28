@@ -19,4 +19,4 @@ func _on_body_entered(body):
 
 
 func _on_body_exited(body):
-	pass # Replace with function body.
+	get_tree().call_group("main","player_left",pressure_point_type)
