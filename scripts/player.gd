@@ -19,8 +19,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("switch_views"):
 		if mode == MODES.TOP:
 			mode = MODES.FPS
+			$SpringArm3D/top.current = false
+			$SpringArm3D/fps.current = true
 		else:
 			mode = MODES.TOP
+			$SpringArm3D/top.current = true
+			$SpringArm3D/fps.current = false
 		
 	return
 		

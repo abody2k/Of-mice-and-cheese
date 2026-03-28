@@ -22,5 +22,8 @@ transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70
 shape = SubResource("SphereShape3D_3vyb7")
 spring_length = 5.0
 
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1509131553]
+[node name="top" type="Camera3D" parent="SpringArm3D" unique_id=1509131553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="fps" type="Camera3D" parent="SpringArm3D" unique_id=233448768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
