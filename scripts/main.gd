@@ -15,6 +15,8 @@ var rain_multiplier = 1.0
 
 var cloudy= true
 
+@export var waves_left = 10
+
 
 const STUFF = {
 "SEEDS":0.5,
@@ -40,7 +42,7 @@ func clouds_going_away():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$waves.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -146,3 +148,22 @@ func player_left(pressure_point_type):
 		defenses_on = false
 	else:
 		open_water_gate = false	
+
+
+func _on_waves_timeout():
+	$waves/spawning.start()
+
+
+func _on_spawning_timeout():
+	waves_left -=1
+	#spawn a new rat
+	
+	if randi_range(0,1) == 0:
+		pass
+	else:
+		pass
+	if waves_left ==0:
+		waves_left = 10
+		$waves/spawning.stop()
+		$waves.start()
+	

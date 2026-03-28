@@ -86,7 +86,7 @@ transform = Transform3D(-0.020403681, 0, 0.9997918, 0, 1, 0, -0.9997918, 0, -0.0
 curve = SubResource("Curve3D_jyhfs")
 
 [node name="follow" type="PathFollow3D" parent="paths/3" unique_id=1861191831]
-transform = Transform3D(-0.22282451, 0, 0.97485805, 0, 1, 0, -0.97485805, 0, -0.22282451, 6.76529, 0, 1.2182707)
+transform = Transform3D(-0.2228245, 0, 0.974858, 0, 1, 0, -0.974858, 0, -0.2228245, 6.76529, 0, 1.2182707)
 
 [node name="pressure_point" parent="paths/3" unique_id=245685369 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
@@ -97,5 +97,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1407666, 0, 0)
 [node name="player" parent="paths/3" unique_id=1429728027 instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.092672, 2.3841858e-07, 0.06392717)
 
+[node name="waves" type="Timer" parent="." unique_id=326153596]
+wait_time = 10.0
+one_shot = true
+
+[node name="spawning" type="Timer" parent="waves" unique_id=231920662]
+wait_time = 3.0
+
 [connection signal="timeout" from="rain" to="." method="_on_rain_timeout"]
 [connection signal="timeout" from="raining" to="." method="_on_raining_timeout"]
+[connection signal="timeout" from="waves" to="." method="_on_waves_timeout"]
+[connection signal="timeout" from="waves/spawning" to="." method="_on_spawning_timeout"]
