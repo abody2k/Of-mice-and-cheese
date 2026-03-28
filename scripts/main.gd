@@ -138,3 +138,9 @@ func player_entered(pressure_point_type):
 	else:
 		defenses_on = false
 		open_water_gate = true
+		
+func player_left(pressure_point_type):
+	if pressure_point_type == 0:
+		defenses_on = false
+	else:
+		open_water_gate = false	
