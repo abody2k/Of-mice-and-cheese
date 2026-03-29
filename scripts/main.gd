@@ -163,7 +163,7 @@ func _on_spawning_timeout():
 	match  randi_range(0,2):
 		0:
 			var rat = RAT.instantiate()
-			get_node(str(randi_range(0,3))+"/follow").add_child(rat)
+			get_node("paths/"+str(randi_range(0,3))+"/follow").add_child(rat)
 			
 		1:
 			pass
