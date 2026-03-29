@@ -218,3 +218,9 @@ func _on_sell_flour_button_down():
 	if flour >= 1:
 		flour-=1
 		gold+=10
+
+
+func _on_sell_seeds_button_down():
+	if seeds >= 2:
+		seeds-=2
+		gold+=1

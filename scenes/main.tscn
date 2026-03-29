@@ -285,6 +285,7 @@ text = "10 GW"
 [connection signal="timeout" from="waves/spawning" to="." method="_on_spawning_timeout"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/flour/sell_flour" to="." method="_on_sell_flour_button_down"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/flour/buy_flour" to="." method="_on_buy_flour_button_down"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/seeds/sell_seeds" to="." method="_on_sell_seeds_button_down"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/seeds/buy_seeds" to="." method="_on_buy_seeds_button_down"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/bullets/buy_bullets" to="." method="_on_buy_bullets_button_down"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/electricity/buy_electricity_capacity" to="." method="_on_buy_electricity_capacity_button_down"]
