@@ -7,6 +7,8 @@
 [sub_resource type="SphereMesh" id="SphereMesh_jhkp8"]
 
 [node name="flying_rat" type="CharacterBody3D" unique_id=1956684343]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_5bwme")
 speed = 20.0
 hp = 200.0

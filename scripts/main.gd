@@ -12,7 +12,7 @@ var open_water_gate = false
 var defenses_on = false
 var raining = false
 var rain_multiplier = 1.0
-
+var bullets = 0
 var cloudy= true
 
 @export var waves_left = 10
@@ -24,7 +24,8 @@ const STUFF = {
 "SEEDS":0.5,
 "FLOUR": 10,
  "ELECTRICITY":100,
-"WATER":100
+"WATER":100,
+"BULLETS":0.1
 }
 
 
@@ -163,7 +164,7 @@ func _on_spawning_timeout():
 	match  randi_range(0,2):
 		0:
 			var rat = RAT.instantiate()
-			get_node(str(randi_range(0,3))+"/follow").add_child(rat)
+			get_node("paths/"+str(randi_range(0,3))+"/follow").add_child(rat)
 			
 		1:
 			pass
@@ -174,3 +175,52 @@ func _on_spawning_timeout():
 		$waves/spawning.stop()
 		$waves.start()
 	
+
+
+
+
+
+func _on_buy_bullets_button_down():
+	if gold > 0:
+		gold-=1
+		bullets+=10
+
+
+func _on_buy_flour_button_down():
+	if gold >= 10:
+		gold-=10
+		flour+=1
+
+
+
+
+
+func _on_buy_seeds_button_down():
+	if gold >= 0.5:
+		gold-=0.5
+		seeds+=1
+
+
+func _on_buy_electricity_capacity_button_down():
+	if gold > 100:
+		gold-=100
+		electricity_capacity+=1
+	
+
+
+func _on_button_button_down():
+	if gold > 100:
+		gold-=100
+		water_capacity+=1
+
+
+func _on_sell_flour_button_down():
+	if flour >= 1:
+		flour-=1
+		gold+=10
+
+
+func _on_sell_seeds_button_down():
+	if seeds >= 2:
+		seeds-=2
+		gold+=1

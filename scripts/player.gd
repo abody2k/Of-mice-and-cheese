@@ -26,7 +26,7 @@ func _physics_process(delta):
 			$SpringArm3D/top.current = true
 			$FPS/fps.current = false
 		
-	return
+	
 		
 	# Add the gravity.
 	if not is_on_floor():

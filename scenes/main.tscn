@@ -44,6 +44,12 @@ _data = {
 }
 point_count = 9
 
+[sub_resource type="BoxMesh" id="BoxMesh_sugp2"]
+size = Vector3(32, 1, 21)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sugp2"]
+data = PackedVector3Array(-16, 0.5, 10.5, 16, 0.5, 10.5, -16, -0.5, 10.5, 16, 0.5, 10.5, 16, -0.5, 10.5, -16, -0.5, 10.5, 16, 0.5, -10.5, -16, 0.5, -10.5, 16, -0.5, -10.5, -16, 0.5, -10.5, -16, -0.5, -10.5, 16, -0.5, -10.5, 16, 0.5, 10.5, 16, 0.5, -10.5, 16, -0.5, 10.5, 16, 0.5, -10.5, 16, -0.5, -10.5, 16, -0.5, 10.5, -16, 0.5, -10.5, -16, 0.5, 10.5, -16, -0.5, -10.5, -16, 0.5, 10.5, -16, -0.5, 10.5, -16, -0.5, -10.5, 16, 0.5, 10.5, -16, 0.5, 10.5, 16, 0.5, -10.5, -16, 0.5, 10.5, -16, 0.5, -10.5, 16, 0.5, -10.5, -16, -0.5, 10.5, 16, -0.5, 10.5, -16, -0.5, -10.5, 16, -0.5, 10.5, 16, -0.5, -10.5, -16, -0.5, -10.5)
+
 [node name="main" type="Node3D" unique_id=1107379641 groups=["main"]]
 script = ExtResource("1_o5qli")
 
@@ -86,7 +92,7 @@ transform = Transform3D(-0.020403681, 0, 0.9997918, 0, 1, 0, -0.9997918, 0, -0.0
 curve = SubResource("Curve3D_jyhfs")
 
 [node name="follow" type="PathFollow3D" parent="paths/3" unique_id=1861191831]
-transform = Transform3D(-0.2228245, 0, 0.974858, 0, 1, 0, -0.974858, 0, -0.2228245, 6.76529, 0, 1.2182707)
+transform = Transform3D(-0.22282444, 0, 0.9748577, 0, 1, 0, -0.9748577, 0, -0.22282444, 6.76529, 0, 1.2182707)
 
 [node name="pressure_point" parent="paths/3" unique_id=245685369 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
@@ -104,7 +110,183 @@ one_shot = true
 [node name="spawning" type="Timer" parent="waves" unique_id=231920662]
 wait_time = 3.0
 
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1561335764]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=11658542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.97467875, 0)
+mesh = SubResource("BoxMesh_sugp2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1923440797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.97467875, 0)
+shape = SubResource("ConcavePolygonShape3D_sugp2")
+
+[node name="Control" type="Control" parent="." unique_id=1544721477]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=2117480871]
+
+[node name="shop" type="Panel" parent="Control/CanvasLayer" unique_id=1991983205]
+anchors_preset = -1
+anchor_left = 0.34300002
+anchor_top = 0.171
+anchor_right = 0.657
+anchor_bottom = 0.82900006
+offset_left = 0.36398315
+offset_top = 0.19200134
+offset_right = -0.36401367
+offset_bottom = -0.1920166
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer/shop" unique_id=716800343]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="flour" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=1500659906]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="sell_flour" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/flour" unique_id=2023971244]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "sell"
+
+[node name="buy_flour" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/flour" unique_id=362923890]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Buy"
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/shop/VBoxContainer/flour" unique_id=446627262]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Flour"
+
+[node name="seeds" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=911653299]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="sell_seeds" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/seeds" unique_id=156348722]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "sell"
+
+[node name="buy_seeds" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/seeds" unique_id=1230304967]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Buy"
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/shop/VBoxContainer/seeds" unique_id=83882673]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "seeds bag"
+
+[node name="bullets" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=577780667]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="buy_bullets" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/bullets" unique_id=971692114]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Buy"
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/shop/VBoxContainer/bullets" unique_id=947789170]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bullets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="electricity" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=2030950987]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="buy_electricity_capacity" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/electricity" unique_id=787772448]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "buy"
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/shop/VBoxContainer/electricity" unique_id=315627556]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "eletricity capacity"
+
+[node name="water" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=1618362023]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/water" unique_id=542833859]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Buy"
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/shop/VBoxContainer/water" unique_id=947461]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "water capacity"
+
+[node name="Panel" type="Panel" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=1170087763]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.42
+
+[node name="Panel2" type="Panel" parent="Control/CanvasLayer" unique_id=963796606]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.120000005
+offset_right = -2.0
+offset_bottom = 0.23999786
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CanvasLayer/Panel2" unique_id=1061719477]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/Panel2/HBoxContainer" unique_id=535334839]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "GOLD : 1000"
+
+[node name="water" type="RichTextLabel" parent="Control/CanvasLayer/Panel2/HBoxContainer" unique_id=45887949]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10.0 L"
+
+[node name="flour" type="RichTextLabel" parent="Control/CanvasLayer/Panel2/HBoxContainer" unique_id=671328712]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10 bags"
+
+[node name="seeds" type="RichTextLabel" parent="Control/CanvasLayer/Panel2/HBoxContainer" unique_id=418894548]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10 bags"
+
+[node name="electricity" type="RichTextLabel" parent="Control/CanvasLayer/Panel2/HBoxContainer" unique_id=1190309748]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10 GW"
+
 [connection signal="timeout" from="rain" to="." method="_on_rain_timeout"]
 [connection signal="timeout" from="raining" to="." method="_on_raining_timeout"]
 [connection signal="timeout" from="waves" to="." method="_on_waves_timeout"]
 [connection signal="timeout" from="waves/spawning" to="." method="_on_spawning_timeout"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/flour/sell_flour" to="." method="_on_sell_flour_button_down"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/flour/buy_flour" to="." method="_on_buy_flour_button_down"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/seeds/sell_seeds" to="." method="_on_sell_seeds_button_down"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/seeds/buy_seeds" to="." method="_on_buy_seeds_button_down"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/bullets/buy_bullets" to="." method="_on_buy_bullets_button_down"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/electricity/buy_electricity_capacity" to="." method="_on_buy_electricity_capacity_button_down"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/water/Button" to="." method="_on_button_button_down"]
