@@ -206,3 +206,9 @@ func _on_buy_electricity_capacity_button_down():
 		gold-=100
 		electricity_capacity+=1
 	
+
+
+func _on_button_button_down():
+	if gold > 100:
+		gold-=100
+		water_capacity+=1

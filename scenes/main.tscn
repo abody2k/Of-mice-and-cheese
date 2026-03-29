@@ -277,3 +277,4 @@ text = "10 GW"
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/flour/buy_flour" to="." method="_on_buy_flour_button_down"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/seeds/buy_seeds" to="." method="_on_buy_seeds_button_down"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/electricity/buy_electricity_capacity" to="." method="_on_buy_electricity_capacity_button_down"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/water/Button" to="." method="_on_button_button_down"]
