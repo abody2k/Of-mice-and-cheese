@@ -24,7 +24,8 @@ const STUFF = {
 "SEEDS":0.5,
 "FLOUR": 10,
  "ELECTRICITY":100,
-"WATER":100
+"WATER":100,
+"BULLETS":0.1
 }
 
 
@@ -180,4 +181,6 @@ func _on_spawning_timeout():
 
 
 func _on_buy_bullets_button_down():
-	pass # Replace with function body.
+	if gold > 0:
+		gold-=1
+		bullets+=10
