@@ -239,6 +239,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 1.42
 
 [node name="Panel2" type="Panel" parent="Control/CanvasLayer" unique_id=963796606]
+visible = false
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.120000005
@@ -278,6 +279,14 @@ text = "10 bags"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "10 GW"
+
+[node name="Button" type="Button" parent="Control/CanvasLayer" unique_id=1872008734]
+anchors_preset = -1
+anchor_right = 0.056
+anchor_bottom = 0.048
+offset_right = -56.512
+offset_bottom = -23.104
+text = "Market"
 
 [connection signal="timeout" from="rain" to="." method="_on_rain_timeout"]
 [connection signal="timeout" from="raining" to="." method="_on_raining_timeout"]
