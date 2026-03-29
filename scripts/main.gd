@@ -212,3 +212,9 @@ func _on_button_button_down():
 	if gold > 100:
 		gold-=100
 		water_capacity+=1
+
+
+func _on_sell_flour_button_down():
+	if flour >= 1:
+		flour-=1
+		gold+=10
