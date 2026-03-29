@@ -202,5 +202,7 @@ func _on_buy_seeds_button_down():
 
 
 func _on_buy_electricity_capacity_button_down():
-	pass
+	if gold > 100:
+		gold-=100
+		electricity_capacity+=1
 	
