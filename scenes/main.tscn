@@ -130,7 +130,7 @@ grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=2117480871]
 
-[node name="Panel" type="Panel" parent="Control/CanvasLayer" unique_id=1991983205]
+[node name="shop" type="Panel" parent="Control/CanvasLayer" unique_id=1991983205]
 anchors_preset = -1
 anchor_left = 0.34300002
 anchor_top = 0.171
@@ -142,6 +142,132 @@ offset_right = -0.36401367
 offset_bottom = -0.1920166
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer/shop" unique_id=716800343]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bullets" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=577780667]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/bullets" unique_id=971692114]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Buy"
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/shop/VBoxContainer/bullets" unique_id=947789170]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bullets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="flour" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=1500659906]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/flour" unique_id=362923890]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Buy"
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/shop/VBoxContainer/flour" unique_id=446627262]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Flour"
+
+[node name="seeds" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=911653299]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/seeds" unique_id=1230304967]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Buy"
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/shop/VBoxContainer/seeds" unique_id=83882673]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "seeds bag"
+
+[node name="electricity" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=2030950987]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/electricity" unique_id=787772448]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "buy"
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/shop/VBoxContainer/electricity" unique_id=315627556]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "eletricity capacity"
+
+[node name="water" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=1618362023]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/water" unique_id=542833859]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Buy"
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/shop/VBoxContainer/water" unique_id=947461]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "water capacity"
+
+[node name="Panel" type="Panel" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=1170087763]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.42
+
+[node name="Panel2" type="Panel" parent="Control/CanvasLayer" unique_id=963796606]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.120000005
+offset_right = -2.0
+offset_bottom = 0.23999786
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CanvasLayer/Panel2" unique_id=1061719477]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/Panel2/HBoxContainer" unique_id=535334839]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "GOLD : 1000"
+
+[node name="water" type="RichTextLabel" parent="Control/CanvasLayer/Panel2/HBoxContainer" unique_id=45887949]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10.0 L"
+
+[node name="flour" type="RichTextLabel" parent="Control/CanvasLayer/Panel2/HBoxContainer" unique_id=671328712]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10 bags"
+
+[node name="seeds" type="RichTextLabel" parent="Control/CanvasLayer/Panel2/HBoxContainer" unique_id=418894548]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10 bags"
+
+[node name="electricity" type="RichTextLabel" parent="Control/CanvasLayer/Panel2/HBoxContainer" unique_id=1190309748]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10 GW"
 
 [connection signal="timeout" from="rain" to="." method="_on_rain_timeout"]
 [connection signal="timeout" from="raining" to="." method="_on_raining_timeout"]
