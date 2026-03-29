@@ -185,7 +185,7 @@ text = "Flour"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/seeds" unique_id=1230304967]
+[node name="buy_seeds" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/seeds" unique_id=1230304967]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Buy"
@@ -199,7 +199,7 @@ text = "seeds bag"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/electricity" unique_id=787772448]
+[node name="buy_electricity_capacity" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/electricity" unique_id=787772448]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "buy"
@@ -275,3 +275,5 @@ text = "10 GW"
 [connection signal="timeout" from="waves/spawning" to="." method="_on_spawning_timeout"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/bullets/buy_bullets" to="." method="_on_buy_bullets_button_down"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/flour/buy_flour" to="." method="_on_buy_flour_button_down"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/seeds/buy_seeds" to="." method="_on_buy_seeds_button_down"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/electricity/buy_electricity_capacity" to="." method="_on_buy_electricity_capacity_button_down"]

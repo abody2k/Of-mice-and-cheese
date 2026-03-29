@@ -187,6 +187,20 @@ func _on_buy_bullets_button_down():
 
 
 func _on_buy_flour_button_down():
-	if gold > 10:
+	if gold >= 10:
 		gold-=10
 		flour+=1
+
+
+
+
+
+func _on_buy_seeds_button_down():
+	if gold >= 0.5:
+		gold-=0.5
+		seeds+=1
+
+
+func _on_buy_electricity_capacity_button_down():
+	pass
+	
