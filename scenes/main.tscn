@@ -155,7 +155,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/bullets" unique_id=971692114]
+[node name="buy_bullets" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/bullets" unique_id=971692114]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Buy"
@@ -273,3 +273,4 @@ text = "10 GW"
 [connection signal="timeout" from="raining" to="." method="_on_raining_timeout"]
 [connection signal="timeout" from="waves" to="." method="_on_waves_timeout"]
 [connection signal="timeout" from="waves/spawning" to="." method="_on_spawning_timeout"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/bullets/buy_bullets" to="." method="_on_buy_bullets_button_down"]

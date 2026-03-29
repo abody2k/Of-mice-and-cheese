@@ -12,7 +12,7 @@ var open_water_gate = false
 var defenses_on = false
 var raining = false
 var rain_multiplier = 1.0
-
+var bullets = 0
 var cloudy= true
 
 @export var waves_left = 10
@@ -174,3 +174,10 @@ func _on_spawning_timeout():
 		$waves/spawning.stop()
 		$waves.start()
 	
+
+
+
+
+
+func _on_buy_bullets_button_down():
+	pass # Replace with function body.
