@@ -171,7 +171,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/flour" unique_id=362923890]
+[node name="buy_flour" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/flour" unique_id=362923890]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Buy"
@@ -274,3 +274,4 @@ text = "10 GW"
 [connection signal="timeout" from="waves" to="." method="_on_waves_timeout"]
 [connection signal="timeout" from="waves/spawning" to="." method="_on_spawning_timeout"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/bullets/buy_bullets" to="." method="_on_buy_bullets_button_down"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/flour/buy_flour" to="." method="_on_buy_flour_button_down"]

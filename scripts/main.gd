@@ -184,3 +184,9 @@ func _on_buy_bullets_button_down():
 	if gold > 0:
 		gold-=1
 		bullets+=10
+
+
+func _on_buy_flour_button_down():
+	if gold > 10:
+		gold-=10
+		flour+=1
