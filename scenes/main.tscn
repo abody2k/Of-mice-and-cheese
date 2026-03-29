@@ -151,25 +151,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="bullets" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=577780667]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="buy_bullets" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/bullets" unique_id=971692114]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Buy"
-
-[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/shop/VBoxContainer/bullets" unique_id=947789170]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Bullets"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="flour" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=1500659906]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="sell_flour" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/flour" unique_id=2023971244]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "sell"
 
 [node name="buy_flour" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/flour" unique_id=362923890]
 layout_mode = 2
@@ -185,6 +174,11 @@ text = "Flour"
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="sell_seeds" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/seeds" unique_id=156348722]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "sell"
+
 [node name="buy_seeds" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/seeds" unique_id=1230304967]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -194,6 +188,22 @@ text = "Buy"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "seeds bag"
+
+[node name="bullets" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=577780667]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="buy_bullets" type="Button" parent="Control/CanvasLayer/shop/VBoxContainer/bullets" unique_id=971692114]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Buy"
+
+[node name="gold" type="RichTextLabel" parent="Control/CanvasLayer/shop/VBoxContainer/bullets" unique_id=947789170]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bullets"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="electricity" type="HBoxContainer" parent="Control/CanvasLayer/shop/VBoxContainer" unique_id=2030950987]
 layout_mode = 2
@@ -273,8 +283,8 @@ text = "10 GW"
 [connection signal="timeout" from="raining" to="." method="_on_raining_timeout"]
 [connection signal="timeout" from="waves" to="." method="_on_waves_timeout"]
 [connection signal="timeout" from="waves/spawning" to="." method="_on_spawning_timeout"]
-[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/bullets/buy_bullets" to="." method="_on_buy_bullets_button_down"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/flour/buy_flour" to="." method="_on_buy_flour_button_down"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/seeds/buy_seeds" to="." method="_on_buy_seeds_button_down"]
+[connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/bullets/buy_bullets" to="." method="_on_buy_bullets_button_down"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/electricity/buy_electricity_capacity" to="." method="_on_buy_electricity_capacity_button_down"]
 [connection signal="button_down" from="Control/CanvasLayer/shop/VBoxContainer/water/Button" to="." method="_on_button_button_down"]
