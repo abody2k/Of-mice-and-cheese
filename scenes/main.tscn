@@ -75,7 +75,7 @@ one_shot = true
 curve = SubResource("Curve3D_o5qli")
 
 [node name="follow" type="PathFollow3D" parent="paths/0" unique_id=449822368]
-transform = Transform3D(0.34569913, 0, 0.9383263, 0, 1, 0, -0.9383263, 0, 0.34569913, 6.5449643, 0, -0.3369684)
+transform = Transform3D(0.3456988, 0, 0.9383254, 0, 1.0000043, 0, -0.9383254, 0, 0.3456988, 6.5449643, 0, -0.3369684)
 
 [node name="rat" parent="paths/0/follow" unique_id=2088614294 instance=ExtResource("2_jyhfs")]
 

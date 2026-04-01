@@ -13,6 +13,10 @@ var eating = false
 func start_eating():
 	eating = true
 
+func cheese_is_gone():
+	eating = false
+	
+	
 func freeze():
 	frozen = true
 	$Timer.start()
