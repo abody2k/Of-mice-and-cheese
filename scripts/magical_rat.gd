@@ -21,4 +21,4 @@ func _process(_delta):
 func _attack():
 	#perform attacking
 	#after the attack start the resting timer
-	pass # Replace with function body.
+	get_tree().call_group("main","clouds_going_away")
