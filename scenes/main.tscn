@@ -83,7 +83,6 @@ curve = SubResource("Curve3D_sugp2")
 curve = SubResource("Curve3D_jyhfs")
 
 [node name="waves" type="Timer" parent="." unique_id=326153596]
-wait_time = 10.0
 one_shot = true
 
 [node name="spawning" type="Timer" parent="waves" unique_id=231920662]

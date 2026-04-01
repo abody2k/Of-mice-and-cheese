@@ -29,11 +29,14 @@ const STUFF = {
 }
 
 
+
 const SPECIAL_POWERS = {
 	
 	"AIR_STRIKES": 10.0,
 	"MONEY_DROP": 20.0,
 }
+
+
 
 
 var cheese = [100.0,100.0,100.0,100.0]
@@ -173,6 +176,9 @@ func _on_waves_timeout():
 func _on_spawning_timeout():
 	waves_left -=1
 	#spawn a new rat
+	
+	
+	#might reduce number of rats
 	
 	match  randi_range(0,2):
 		0:
