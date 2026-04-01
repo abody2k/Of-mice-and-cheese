@@ -29,6 +29,7 @@ const STUFF = {
 }
 
 
+
 const SPECIAL_POWERS = {
 	
 	"AIR_STRIKES": 10.0,
@@ -36,6 +37,21 @@ const SPECIAL_POWERS = {
 }
 
 
+
+
+var cheese = [100.0,100.0,100.0,100.0]
+
+var cheese_to_choose_from = [0,1,2,3]
+
+
+func eating(cheese_index,value,rat):
+	cheese[cheese_index]-= value
+	
+	if cheese[cheese_index] <= 0:
+		rat.call("cheese_is_gone")
+		if cheese_to_choose_from.has(cheese_index):
+			cheese_to_choose_from.erase(cheese_index)		
+		
 
 func clouds_going_away():
 	get_tree().call_group("plants","grow_normally")
@@ -161,10 +177,19 @@ func _on_spawning_timeout():
 	waves_left -=1
 	#spawn a new rat
 	
+	
+	#might reduce number of rats
+	
 	match  randi_range(0,2):
 		0:
+			if cheese_to_choose_from.is_empty():
+				return
+			
+			var follow = PathFollow3D.new()
+			
 			var rat = RAT.instantiate()
-			get_node("paths/"+str(randi_range(0,3))+"/follow").add_child(rat)
+			follow.add_child(rat)
+			get_node("paths/"+str(cheese_to_choose_from.pick_random())).add_child(follow)
 			
 		1:
 			pass

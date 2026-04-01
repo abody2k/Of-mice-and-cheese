@@ -73,38 +73,16 @@ one_shot = true
 [node name="0" type="Path3D" parent="paths" unique_id=1552208539]
 curve = SubResource("Curve3D_o5qli")
 
-[node name="follow" type="PathFollow3D" parent="paths/0" unique_id=449822368]
-transform = Transform3D(0.3457037, 0, 0.9383387, 0, 1, 0, -0.9383387, 0, 0.3457037, 6.5449643, 0, -0.3369684)
-
 [node name="1" type="Path3D" parent="paths" unique_id=2007321777]
 curve = SubResource("Curve3D_0wfyh")
-
-[node name="follow" type="PathFollow3D" parent="paths/1" unique_id=724527209]
-transform = Transform3D(0.14142193, 0, 0.9899494, 0, 1, 0, -0.9899494, 0, 0.14142193, 6.713448, 0, 0.5054528)
 
 [node name="2" type="Path3D" parent="paths" unique_id=898314814]
 curve = SubResource("Curve3D_sugp2")
 
-[node name="follow" type="PathFollow3D" parent="paths/2" unique_id=435971845]
-transform = Transform3D(-0.020403681, 0, 0.9997918, 0, 1, 0, -0.9997918, 0, -0.020403681, 6.532004, 0, -1.5422788)
-
 [node name="3" type="Path3D" parent="paths" unique_id=293742382]
 curve = SubResource("Curve3D_jyhfs")
 
-[node name="follow" type="PathFollow3D" parent="paths/3" unique_id=1861191831]
-transform = Transform3D(-0.22282444, 0, 0.9748577, 0, 1, 0, -0.9748577, 0, -0.22282444, 6.76529, 0, 1.2182707)
-
-[node name="pressure_point" parent="paths/3" unique_id=245685369 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-
-[node name="pressure_point2" parent="paths/3" unique_id=861776379 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1407666, 0, 0)
-
-[node name="player" parent="paths/3" unique_id=1429728027 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.092672, 2.3841858e-07, 0.06392717)
-
 [node name="waves" type="Timer" parent="." unique_id=326153596]
-wait_time = 10.0
 one_shot = true
 
 [node name="spawning" type="Timer" parent="waves" unique_id=231920662]
@@ -239,6 +217,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 1.42
 
 [node name="Panel2" type="Panel" parent="Control/CanvasLayer" unique_id=963796606]
+visible = false
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.120000005
@@ -278,6 +257,23 @@ text = "10 bags"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "10 GW"
+
+[node name="Button" type="Button" parent="Control/CanvasLayer" unique_id=1872008734]
+anchors_preset = -1
+anchor_right = 0.056
+anchor_bottom = 0.048
+offset_right = -56.512
+offset_bottom = -23.104
+text = "Market"
+
+[node name="pressure_point" parent="." unique_id=245685369 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="pressure_point2" parent="." unique_id=861776379 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1407666, 0, 0)
+
+[node name="player" parent="." unique_id=1429728027 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.092672, 2.3841858e-07, 0.06392717)
 
 [connection signal="timeout" from="rain" to="." method="_on_rain_timeout"]
 [connection signal="timeout" from="raining" to="." method="_on_raining_timeout"]

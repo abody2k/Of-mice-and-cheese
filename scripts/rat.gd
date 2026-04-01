@@ -8,7 +8,40 @@ extends CharacterBody3D
 @export var on_death_rank = 1.0
 var frozen = false
 
+var tween : Tween
 
+
+
+func cheese_is_gone():
+	tween_finished()
+	
+	
+	
+func freeze():
+	frozen = true
+	$Timer.start()
+	tween.pause()
+	
+
+enum MODES {GOING_TOWARDS_CHEESE,EATING,RETURNING,ATTACKING}
+
+var mode = MODES.GOING_TOWARDS_CHEESE
+
+
+func tween_finished():
+	match mode :
+		MODES.GOING_TOWARDS_CHEESE:
+			mode = MODES.EATING
+		MODES.EATING:
+			mode = MODES.RETURNING
+			tween = create_tween()
+			tween.finished.connect(tween_finished)
+			rotation_degrees.y = 180
+			tween.tween_property(get_parent(),"progress_ratio",0.0,10)
+		MODES.RETURNING:
+			queue_free()
+			
+	
 func take_damage(damage):
 	hp -=damage
 	if hp<= 0 :
@@ -20,25 +53,20 @@ func take_damage(damage):
 	
 		
 
-func _physics_process(delta):
-	pass
-	## Add the gravity.
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
-#
-	## Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-#
-	## Get the input direction and handle the movement/deceleration.
-	## As good practice, you should replace UI actions with custom gameplay actions.
-	#var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	#var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	#if direction:
-		#velocity.x = direction.x * SPEED
-		#velocity.z = direction.z * SPEED
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-		#velocity.z = move_toward(velocity.z, 0, SPEED)
-#
-	#move_and_slide()
+
+func _ready():
+	
+	tween = create_tween()
+	tween.finished.connect(tween_finished)
+	tween.tween_property(get_parent(),"progress_ratio",1.0,10)
+	
+
+
+func _process(delta):
+	if mode == MODES.EATING:
+		get_tree().call_group("main","eating",int(get_parent().get_parent().name),delta * 10,self)
+
+
+func _on_timer_timeout():
+	tween.play()
+	

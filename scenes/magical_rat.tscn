@@ -20,3 +20,8 @@ shape = SubResource("SphereShape3D_8jjk5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=536399759]
 mesh = SubResource("SphereMesh_jhkp8")
+
+[node name="resting" type="Timer" parent="." unique_id=1096934484]
+one_shot = true
+
+[connection signal="timeout" from="resting" to="." method="_attack"]
