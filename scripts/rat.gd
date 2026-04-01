@@ -9,6 +9,10 @@ extends CharacterBody3D
 var frozen = false
 
 
+func freeze():
+	frozen = true
+	$Timer.start()
+
 func take_damage(damage):
 	hp -=damage
 	if hp<= 0 :
@@ -25,4 +29,3 @@ func _physics_process(delta):
 	if frozen:
 		return
 		
-	pass
