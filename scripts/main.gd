@@ -38,6 +38,7 @@ const SPECIAL_POWERS = {
 
 var cheese = [100.0,100.0,100.0,100.0]
 
+var cheese_to_avoid = []
 
 
 func eating(cheese_index,value,rat):
@@ -45,6 +46,11 @@ func eating(cheese_index,value,rat):
 	
 	if cheese[cheese_index] <= 0:
 		rat.call("cheese_is_gone")
+		if cheese_to_avoid.has(cheese_index):
+			return
+		
+		cheese_to_avoid.append(cheese_index)
+		
 		
 
 func clouds_going_away():
