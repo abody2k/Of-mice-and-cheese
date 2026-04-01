@@ -9,6 +9,7 @@ extends CharacterBody3D
 var frozen = false
 var eating = false
 
+var tween : Tween
 
 func start_eating():
 	eating = true
@@ -33,6 +34,13 @@ func take_damage(damage):
 		return 0
 	
 		
+
+
+func _ready():
+	
+	tween = create_tween()
+	tween.tween_property(get_parent(),"progress_ratio",1.0,10)
+	
 
 func _physics_process(delta):
 	
