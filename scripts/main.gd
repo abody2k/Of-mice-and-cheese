@@ -38,7 +38,7 @@ const SPECIAL_POWERS = {
 
 var cheese = [100.0,100.0,100.0,100.0]
 
-var cheese_to_avoid = []
+var cheese_to_choose_from = [0,1,2,3]
 
 
 func eating(cheese_index,value,rat):
@@ -46,11 +46,8 @@ func eating(cheese_index,value,rat):
 	
 	if cheese[cheese_index] <= 0:
 		rat.call("cheese_is_gone")
-		if cheese_to_avoid.has(cheese_index):
-			return
-		
-		cheese_to_avoid.append(cheese_index)
-		
+		if cheese_to_choose_from.has(cheese_index):
+			cheese_to_choose_from.erase(cheese_index)		
 		
 
 func clouds_going_away():
@@ -180,7 +177,8 @@ func _on_spawning_timeout():
 	match  randi_range(0,2):
 		0:
 			var rat = RAT.instantiate()
-			get_node("paths/"+str(randi_range(0,3))+"/follow").add_child(rat)
+			
+			get_node("paths/"+str(cheese_to_choose_from.pick_random())+"/follow").add_child(rat)
 			
 		1:
 			pass
