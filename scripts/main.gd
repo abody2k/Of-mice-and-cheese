@@ -178,10 +178,12 @@ func _on_spawning_timeout():
 		0:
 			if cheese_to_choose_from.is_empty():
 				return
-				
-			var rat = RAT.instantiate()
 			
-			get_node("paths/"+str(cheese_to_choose_from.pick_random())+"/follow").add_child(rat)
+			var follow = PathFollow3D.new()
+			
+			var rat = RAT.instantiate()
+			follow.add_child(rat)
+			get_node("paths/"+str(cheese_to_choose_from.pick_random())).add_child(follow)
 			
 		1:
 			pass
