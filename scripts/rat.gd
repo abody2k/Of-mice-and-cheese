@@ -59,7 +59,8 @@ func _ready():
 
 
 func _process(delta):
-	pass
+	if mode == MODES.EATING:
+		get_tree().call_group("main","eating",int(get_parent().get_parent().name),delta,self)
 
 
 func _on_timer_timeout():
