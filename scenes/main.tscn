@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bpmf5g0k638cb" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dg84uy4wmu6x2" path="res://scenes/pressure_point.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://dpxxor3vywgq6" path="res://scenes/rat.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b47hkftkufyky" path="res://scenes/player.tscn" id="3_sugp2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
@@ -74,37 +73,14 @@ one_shot = true
 [node name="0" type="Path3D" parent="paths" unique_id=1552208539]
 curve = SubResource("Curve3D_o5qli")
 
-[node name="follow" type="PathFollow3D" parent="paths/0" unique_id=449822368]
-transform = Transform3D(0.34569868, 0, 0.93832505, 0, 1.0000043, 0, -0.93832505, 0, 0.34569868, 6.5449643, 0, -0.3369684)
-
-[node name="rat" parent="paths/0/follow" unique_id=2088614294 instance=ExtResource("2_jyhfs")]
-
 [node name="1" type="Path3D" parent="paths" unique_id=2007321777]
 curve = SubResource("Curve3D_0wfyh")
-
-[node name="follow" type="PathFollow3D" parent="paths/1" unique_id=724527209]
-transform = Transform3D(0.14142193, 0, 0.9899494, 0, 1, 0, -0.9899494, 0, 0.14142193, 6.713448, 0, 0.5054528)
 
 [node name="2" type="Path3D" parent="paths" unique_id=898314814]
 curve = SubResource("Curve3D_sugp2")
 
-[node name="follow" type="PathFollow3D" parent="paths/2" unique_id=435971845]
-transform = Transform3D(-0.020403681, 0, 0.9997918, 0, 1, 0, -0.9997918, 0, -0.020403681, 6.532004, 0, -1.5422788)
-
 [node name="3" type="Path3D" parent="paths" unique_id=293742382]
 curve = SubResource("Curve3D_jyhfs")
-
-[node name="follow" type="PathFollow3D" parent="paths/3" unique_id=1861191831]
-transform = Transform3D(-0.22282436, 0, 0.9748574, 0, 1, 0, -0.9748574, 0, -0.22282436, 6.76529, 0, 1.2182707)
-
-[node name="pressure_point" parent="paths/3" unique_id=245685369 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-
-[node name="pressure_point2" parent="paths/3" unique_id=861776379 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1407666, 0, 0)
-
-[node name="player" parent="paths/3" unique_id=1429728027 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.092672, 2.3841858e-07, 0.06392717)
 
 [node name="waves" type="Timer" parent="." unique_id=326153596]
 wait_time = 10.0
@@ -290,6 +266,15 @@ anchor_bottom = 0.048
 offset_right = -56.512
 offset_bottom = -23.104
 text = "Market"
+
+[node name="pressure_point" parent="." unique_id=245685369 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="pressure_point2" parent="." unique_id=861776379 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1407666, 0, 0)
+
+[node name="player" parent="." unique_id=1429728027 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.092672, 2.3841858e-07, 0.06392717)
 
 [connection signal="timeout" from="rain" to="." method="_on_rain_timeout"]
 [connection signal="timeout" from="raining" to="." method="_on_raining_timeout"]
