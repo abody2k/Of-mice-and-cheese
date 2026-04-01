@@ -36,6 +36,16 @@ const SPECIAL_POWERS = {
 }
 
 
+var cheese = [100.0,100.0,100.0,100.0]
+
+
+
+func eating(cheese_index,value,rat):
+	cheese[cheese_index]-= value
+	
+	if cheese[cheese_index] <= 0:
+		rat.call("cheese_is_gone")
+		
 
 func clouds_going_away():
 	get_tree().call_group("plants","grow_normally")
