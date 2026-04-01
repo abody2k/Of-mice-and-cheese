@@ -29,3 +29,7 @@ func _physics_process(delta):
 	if frozen:
 		return
 		
+
+
+func _on_timer_timeout():
+	frozen = false
