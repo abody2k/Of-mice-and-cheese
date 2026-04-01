@@ -24,6 +24,12 @@ func freeze():
 	var rr = PathFollow3D.new()
 	
 
+enum MODES {GOING_TOWARDS_CHEESE,EATING,RETURNING}
+
+var mode = MODES.GOING_TOWARDS_CHEESE
+
+
+
 func take_damage(damage):
 	hp -=damage
 	if hp<= 0 :
