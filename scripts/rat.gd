@@ -7,21 +7,20 @@ extends CharacterBody3D
 #a rank that is given to the player once this rat dies
 @export var on_death_rank = 1.0
 var frozen = false
-var eating = false
 
 var tween : Tween
 
-func start_eating():
-	eating = true
+
 
 func cheese_is_gone():
-	eating = false
+	tween_finished()
+	
 	
 	
 func freeze():
 	frozen = true
 	$Timer.start()
-	var rr = PathFollow3D.new()
+	tween.pause()
 	
 
 enum MODES {GOING_TOWARDS_CHEESE,EATING,RETURNING}
@@ -29,7 +28,16 @@ enum MODES {GOING_TOWARDS_CHEESE,EATING,RETURNING}
 var mode = MODES.GOING_TOWARDS_CHEESE
 
 
-
+func tween_finished():
+	match mode :
+		MODES.GOING_TOWARDS_CHEESE:
+			mode = MODES.EATING
+		MODES.EATING:
+			mode = MODES.RETURNING
+		MODES.RETURNING:
+			queue_free()
+			
+	
 func take_damage(damage):
 	hp -=damage
 	if hp<= 0 :
@@ -45,15 +53,15 @@ func take_damage(damage):
 func _ready():
 	
 	tween = create_tween()
+	tween.finished.connect(tween_finished)
 	tween.tween_property(get_parent(),"progress_ratio",1.0,10)
 	
 
-func _physics_process(delta):
-	
-	if frozen:
-		return
-		
+
+func _process(delta):
+	pass
 
 
 func _on_timer_timeout():
-	frozen = false
+	tween.play()
+	
