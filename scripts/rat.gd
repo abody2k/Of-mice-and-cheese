@@ -36,6 +36,7 @@ func tween_finished():
 			mode = MODES.RETURNING
 			tween = create_tween()
 			tween.finished.connect(tween_finished)
+			rotation_degrees.y = 180
 			tween.tween_property(get_parent(),"progress_ratio",0.0,10)
 		MODES.RETURNING:
 			queue_free()
