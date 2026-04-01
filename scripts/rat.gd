@@ -34,6 +34,9 @@ func tween_finished():
 			mode = MODES.EATING
 		MODES.EATING:
 			mode = MODES.RETURNING
+			tween = create_tween()
+			tween.finished.connect(tween_finished)
+			tween.tween_property(get_parent(),"progress_ratio",0.0,10)
 		MODES.RETURNING:
 			queue_free()
 			
@@ -60,7 +63,7 @@ func _ready():
 
 func _process(delta):
 	if mode == MODES.EATING:
-		get_tree().call_group("main","eating",int(get_parent().get_parent().name),delta,self)
+		get_tree().call_group("main","eating",int(get_parent().get_parent().name),delta * 10,self)
 
 
 func _on_timer_timeout():
