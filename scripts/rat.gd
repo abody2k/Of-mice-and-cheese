@@ -7,11 +7,17 @@ extends CharacterBody3D
 #a rank that is given to the player once this rat dies
 @export var on_death_rank = 1.0
 var frozen = false
+var eating = false
 
+
+func start_eating():
+	eating = true
 
 func freeze():
 	frozen = true
 	$Timer.start()
+	var rr = PathFollow3D.new()
+	
 
 func take_damage(damage):
 	hp -=damage

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bpmf5g0k638cb" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dg84uy4wmu6x2" path="res://scenes/pressure_point.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dpxxor3vywgq6" path="res://scenes/rat.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b47hkftkufyky" path="res://scenes/player.tscn" id="3_sugp2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
@@ -74,7 +75,9 @@ one_shot = true
 curve = SubResource("Curve3D_o5qli")
 
 [node name="follow" type="PathFollow3D" parent="paths/0" unique_id=449822368]
-transform = Transform3D(0.3457037, 0, 0.9383387, 0, 1, 0, -0.9383387, 0, 0.3457037, 6.5449643, 0, -0.3369684)
+transform = Transform3D(0.34569913, 0, 0.9383263, 0, 1, 0, -0.9383263, 0, 0.34569913, 6.5449643, 0, -0.3369684)
+
+[node name="rat" parent="paths/0/follow" unique_id=2088614294 instance=ExtResource("2_jyhfs")]
 
 [node name="1" type="Path3D" parent="paths" unique_id=2007321777]
 curve = SubResource("Curve3D_0wfyh")
@@ -92,7 +95,7 @@ transform = Transform3D(-0.020403681, 0, 0.9997918, 0, 1, 0, -0.9997918, 0, -0.0
 curve = SubResource("Curve3D_jyhfs")
 
 [node name="follow" type="PathFollow3D" parent="paths/3" unique_id=1861191831]
-transform = Transform3D(-0.22282444, 0, 0.9748577, 0, 1, 0, -0.9748577, 0, -0.22282444, 6.76529, 0, 1.2182707)
+transform = Transform3D(-0.22282436, 0, 0.9748574, 0, 1, 0, -0.9748574, 0, -0.22282436, 6.76529, 0, 1.2182707)
 
 [node name="pressure_point" parent="paths/3" unique_id=245685369 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)

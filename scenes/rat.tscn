@@ -4,7 +4,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gahpx"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_77a1s"]
+[sub_resource type="BoxMesh" id="BoxMesh_1l88y"]
 
 [node name="rat" type="CharacterBody3D" unique_id=2088614294]
 collision_layer = 4
@@ -15,7 +15,7 @@ script = ExtResource("1_1l88y")
 shape = SubResource("SphereShape3D_gahpx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=3140963]
-mesh = SubResource("SphereMesh_77a1s")
+mesh = SubResource("BoxMesh_1l88y")
 
 [node name="Timer" type="Timer" parent="." unique_id=693723544]
 wait_time = 3.0
