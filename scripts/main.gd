@@ -176,6 +176,9 @@ func _on_spawning_timeout():
 	
 	match  randi_range(0,2):
 		0:
+			if cheese_to_choose_from.is_empty():
+				return
+				
 			var rat = RAT.instantiate()
 			
 			get_node("paths/"+str(cheese_to_choose_from.pick_random())+"/follow").add_child(rat)
