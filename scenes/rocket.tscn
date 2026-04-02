@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b3jyj3vtvuuvq"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_00dr1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3341w"]
+radius = 0.6965318
+
+[node name="rocket" type="CharacterBody3D" unique_id=1891695487]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1657171232]
+mesh = SubResource("PrismMesh_00dr1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1249869973]
+shape = SubResource("SphereShape3D_3341w")
