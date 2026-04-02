@@ -25,4 +25,5 @@ func _ready():
 	
 func _process(delta):
 	velocity.y -= delta * 9.8
+	look_at(global_position+ velocity)
 	move_and_collide(velocity * delta)
