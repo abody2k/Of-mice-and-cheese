@@ -12,6 +12,8 @@ func tween_finished():
 	match mode :
 		MODES.GOING_TOWARDS_CHEESE:
 			mode = MODES.ATTACKING
+			$resting.start()
+			
 			
 
 func _process(_delta):
@@ -19,6 +21,7 @@ func _process(_delta):
 
 
 func _attack():
+	$resting.start()
 	#perform attacking
 	#after the attack start the resting timer
 	get_tree().call_group("main","clouds_going_away")

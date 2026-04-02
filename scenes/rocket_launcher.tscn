@@ -1,13 +1,24 @@
 [gd_scene format=3 uid="uid://chlncjkrba0if"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_63w61"]
+[ext_resource type="Script" uid="uid://cvl8yppt8h7t6" path="res://scripts/rocket_launcher.gd" id="1_mm0yg"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_mm0yg"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mm0yg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vlcf2"]
 
 [node name="rocket_launcher" type="CharacterBody3D" unique_id=236195559]
+script = ExtResource("1_mm0yg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1070699410]
-shape = SubResource("SphereShape3D_63w61")
+shape = SubResource("BoxShape3D_mm0yg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1400397289]
-mesh = SubResource("SphereMesh_mm0yg")
+mesh = SubResource("BoxMesh_vlcf2")
+
+[node name="resting" type="Timer" parent="." unique_id=1735345271]
+one_shot = true
+
+[node name="aim" type="Node3D" parent="." unique_id=1597761773]
+transform = Transform3D(1, 0, 0, 0, 0.81942225, -0.57319033, 0, 0.57319033, 0.81942225, 0, 1.1288629, -0.6938882)
+
+[connection signal="timeout" from="resting" to="." method="_attack"]

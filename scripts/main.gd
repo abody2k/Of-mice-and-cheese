@@ -18,7 +18,7 @@ var cloudy= true
 @export var waves_left = 10
 
 const RAT = preload("res://scenes/rat.tscn")
-
+const ROCKETER = preload("res://scenes/rocket_launcher.tscn")
 
 const STUFF = {
 "SEEDS":0.5,
@@ -179,22 +179,27 @@ func _on_spawning_timeout():
 	
 	
 	#might reduce number of rats
-	
+	var rat
+	var follow = PathFollow3D.new()
 	match  randi_range(0,2):
+		
 		0:
 			if cheese_to_choose_from.is_empty():
 				return
 			
-			var follow = PathFollow3D.new()
+
 			
-			var rat = RAT.instantiate()
-			follow.add_child(rat)
-			get_node("paths/"+str(cheese_to_choose_from.pick_random())).add_child(follow)
-			
+			rat = RAT.instantiate()
+
 		1:
-			pass
+			
+			rat = ROCKETER.instantiate()
 		2:
 			pass
+	if rat:
+		follow.add_child(rat)
+		get_node("paths/"+str(cheese_to_choose_from.pick_random())).add_child(follow)
+				
 	if waves_left ==0:
 		waves_left = randi_range(10,30)
 		$waves/spawning.stop()

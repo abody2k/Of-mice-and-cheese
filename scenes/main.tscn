@@ -273,7 +273,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1407666, 0, 0)
 
 [node name="player" parent="." unique_id=1429728027 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.092672, 2.3841858e-07, 0.06392717)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.093, 0, 0.064)
 
 [connection signal="timeout" from="rain" to="." method="_on_rain_timeout"]
 [connection signal="timeout" from="raining" to="." method="_on_raining_timeout"]
