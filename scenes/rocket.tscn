@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://b3jyj3vtvuuvq"]
 
+[ext_resource type="Script" uid="uid://du0hkwakusfxg" path="res://scenes/rocket.gd" id="1_3341w"]
+
 [sub_resource type="PrismMesh" id="PrismMesh_00dr1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3341w"]
 radius = 0.6965318
 
 [node name="rocket" type="CharacterBody3D" unique_id=1891695487]
+script = ExtResource("1_3341w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1657171232]
 mesh = SubResource("PrismMesh_00dr1")
