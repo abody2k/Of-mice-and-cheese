@@ -12,6 +12,8 @@ func tween_finished():
 	match mode :
 		MODES.GOING_TOWARDS_CHEESE:
 			mode = MODES.ATTACKING
+			$resting.start()
+			
 			
 
 func _process(_delta):
